@@ -1,6 +1,6 @@
 ---
 
-- name: Example
+- name: Setup Docker 
   hosts: "all"
   become: true
   become_user: root
