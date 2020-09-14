@@ -17,11 +17,16 @@ def authorize_key_for_root(config, *key_paths)
         run: 'once',
         inline:
           "echo \"Creating /root/.ssh/authorized_keys with #{key_path}\" && " +
+          'mkdir -p /root/.ssh/ && ' +
           'rm -f /root/.ssh/authorized_keys && ' +
           'mv /home/vagrant/root_pubkey /root/.ssh/authorized_keys && ' +
           'chown root:root /root/.ssh/authorized_keys && ' +
           'chmod 600 /root/.ssh/authorized_keys && ' +
           'rm -f /home/vagrant/root_pubkey && ' +
+#          'yum install wget' +
+#          'wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.3.6-1.el5.rf.i386.rpm' +
+#	   'rpm -i rpmforge-release-0.3.6-1.el5.rf.i386.rpm' + 
+#          'yum install apt'+
           'echo "Done!"'
       break
     end

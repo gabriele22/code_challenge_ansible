@@ -1,0 +1,10 @@
+---
+
+- name: Example
+  hosts: "all"
+  become: true
+  become_user: root
+
+  roles:
+    - role: "ansible-role-docker-master"
+      tags: ["docker"]
